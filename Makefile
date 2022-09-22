@@ -27,10 +27,10 @@ test:
 	@if [ -f /.dockerenv ]; then \
 		$(MAKE) check; \
 	else \
-		$(MAKE) build; \
+		$(MAKE) check build; \
 		docker run --rm -ti -v "$$(pwd):/src" -w /src \
 			--entrypoint /bin/sh \
-			$(IMAGE) -c 'apk add make && make versions test'; \
+			$(IMAGE) -c 'apk add make && make versions'; \
 	fi
 
 .PHONY: test
