@@ -10,8 +10,10 @@ docker_builder:
     - check
   env:
     IMAGE_NAME: fnichol/acme-truenas
-    DOCKER_USERNAME: ENCRYPTED[TODO]
-    DOCKER_PASSWORD: ENCRYPTED[TODO]
+    # yamllint disable rule:line-length
+    DOCKER_USERNAME: ENCRYPTED[df6458fbc5f6d5eae5bdcf98ca897c879795a9baa174b41274e1dde18736f0216d58e6e3eba2fee46dbfb91852412060]
+    DOCKER_PASSWORD: ENCRYPTED[0fb96953544fe51e78bd716d744ed5559c49fd602b800c4ed538a6ba39dce31674cceb7901d4bf479da2155d1e13433f]
+    # yamllint enable rule:line-length
   build_script: make build
   login_script: >
     echo "$DOCKER_PASSWORD" \
