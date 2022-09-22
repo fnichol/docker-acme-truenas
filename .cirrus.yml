@@ -1,0 +1,21 @@
+---
+check_task:
+  container:
+    image: fnichol/check-shell:latest
+  check_script: make check
+
+docker_builder:
+  only_if: $CIRRUS_TAG != ''
+  depends_on:
+    - check
+  env:
+    IMAGE_NAME: fnichol/acme-truenas
+    DOCKER_USERNAME: ENCRYPTED[TODO]
+    DOCKER_PASSWORD: ENCRYPTED[TODO]
+  build_script: make build
+  login_script: >
+    echo "$DOCKER_PASSWORD" \
+      | docker login --username "$DOCKER_USERNAME" --password-stdin
+  push_script:
+    - docker push "$IMAGE_NAME:$CIRRUS_TAG"
+    - docker push "$IMAGE_NAME:latest"
