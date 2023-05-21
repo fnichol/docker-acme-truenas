@@ -21,12 +21,12 @@ LABEL \
 RUN apk add --no-cache python3 py3-requests \
   && wget \
     -O /tmp/master.tar.gz \
-    https://github.com/fnichol/deploy-freenas/archive/refs/heads/fnichol/combined-updates.tar.gz \
+    https://github.com/danb35/deploy-freenas/archive/refs/heads/master.tar.gz \
   && tar \
     -xvzf /tmp/master.tar.gz \
     -C /usr/local/bin \
     --strip 1 \
-    deploy-freenas-fnichol-combined-updates/deploy_freenas.py \
+    deploy-freenas-master/deploy_freenas.py \
   && rm -f /tmp/master.tar.gz \
   && echo "name=$NAME" > /etc/image-metadata \
   && echo "version=$VERSION" >> /etc/image-metadata \
