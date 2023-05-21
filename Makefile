@@ -51,6 +51,6 @@ versions: ## Prints the versions of key tools
 	@echo "--- $@"
 	@echo "  - acme.sh version"
 	@acme.sh --version | sed 's/^/        /'
-	@echo "  - deploy_freenas.py invocation"
-	@{ deploy_freenas.py 2>&1 || true; } | sed 's/^/        /'
+	@echo "  - deploy_freenas.py help invocation"
+	@{ deploy_freenas.py --help 2>&1 || true; } | sed 's/^/        /'
 .PHONY: versions

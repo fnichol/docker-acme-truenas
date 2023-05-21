@@ -27,6 +27,7 @@ RUN apk add --no-cache python3 py3-requests \
     -C /usr/local/bin \
     --strip 1 \
     deploy-freenas-master/deploy_freenas.py \
+  && chmod 755 /usr/local/bin/deploy_freenas.py \
   && rm -f /tmp/master.tar.gz \
   && echo "name=$NAME" > /etc/image-metadata \
   && echo "version=$VERSION" >> /etc/image-metadata \
